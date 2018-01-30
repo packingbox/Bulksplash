@@ -78,7 +78,12 @@ request(url, (error, response, body) => {
             }
 
             console.log(body[i]["user"].name + " (" + body[i]["user"].links["html"] + ")")
-            download(img, path.join(__dirname, "/" + program.folder + "/image-" + i + ".jpg"), program.folder)
+          
+            console.log(img)
+            var img_name = img.split('?')[0].split('/').pop(-1)
+            console.log(img_name)
+            
+            download(img, path.join(__dirname, "/" + program.folder + "/" + img_name + ".jpg"), program.folder)
         }
 
     } else {
